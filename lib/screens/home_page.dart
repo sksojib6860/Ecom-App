@@ -43,6 +43,11 @@ class _HomePageState extends State<HomePage> {
               },
               icon: Icon(Icons.logout))
         ],
+        onTap: (index){
+          setState(() {
+            page = index;
+          });
+        },
       ),
     );
   }

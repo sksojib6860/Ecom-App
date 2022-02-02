@@ -1,5 +1,4 @@
 
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -71,32 +70,23 @@ class _LoginPageState extends State<LoginPage> {
 
   }
 
-
-
-
-
- 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.grey,
       body: SafeArea(
+
         child: Container(
-          decoration: BoxDecoration(image: DecorationImage(image: AssetImage('../images/cherry-blossoms.jpg'),fit: BoxFit.cover)),
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 padding: EdgeInsets.only(
-                  top: 24.0,
+                  top: 100,
                 ),
-                child: Text(
-                  "Log in or Signup Page",
-                  textAlign: TextAlign.center,
-                  style: Constants.boldheading,
-                ),
+                child: Icon(Icons.star,size: 100,color: Colors.green,),
               ),
+              SizedBox(height: 50,),
               Column(
                 children: [
                   Padding(
@@ -124,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                           hintText: 'example@mail.com',
                           labelText: 'Email',
                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide:
                                   BorderSide(color: Colors.red, width: 2)
                                   ),
@@ -164,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                           hintText: 'type your password',
                           labelText: 'Password',
                           focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide:
                                   BorderSide(color: Colors.red, width: 2)
                                   ),
