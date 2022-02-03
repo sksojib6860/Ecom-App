@@ -5,6 +5,7 @@ import 'package:flutter_test_login/body_page/home_tab.dart';
 import 'package:flutter_test_login/body_page/product_tab.dart';
 import 'package:flutter_test_login/body_page/search_tab.dart';
 import 'package:flutter_test_login/screens/login_page.dart';
+import 'package:flutter_test_login/screens/new_home.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,8 +19,11 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> bodypage = [
     HomeTab(),
+    NewHome(),
     ProductTab(),
     SearchTab(),
+    SearchTab(),
+
 
   ];
 
@@ -33,6 +37,7 @@ class _HomePageState extends State<HomePage> {
           Icon(Icons.home),
           Icon(Icons.production_quantity_limits),
           Icon(Icons.search),
+          Icon(Icons.star),
           IconButton(
               onPressed: () {
                 FirebaseAuth.instance.signOut().then((value) =>

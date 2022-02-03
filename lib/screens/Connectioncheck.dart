@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test_login/Constants.dart';
-import 'package:flutter_test_login/screens/home_page.dart';
+import 'package:flutter_test_login/screens/bottom_nav.dart';
 import 'package:flutter_test_login/screens/login_page.dart';
 import 'package:flutter_test_login/screens/splash_screen.dart';
 

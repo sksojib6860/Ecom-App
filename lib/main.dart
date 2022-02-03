@@ -30,6 +30,7 @@ class Myapp extends StatelessWidget {
           textTheme: GoogleFonts.latoTextTheme(
             Theme.of(context).textTheme,
           ),
-        ));
+        )
+    );
   }
 }

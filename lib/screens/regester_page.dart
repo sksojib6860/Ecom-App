@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test_login/screens/home_page.dart';
+import 'package:flutter_test_login/screens/bottom_nav.dart';
 import 'package:flutter_test_login/utils/custom_color.dart';
 
 class RigesterPage extends StatefulWidget {
@@ -77,11 +77,7 @@ class _RigesterPageState extends State<RigesterPage> {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  '../images/cherry-blossoms.jpg',
-                ),
-                fit: BoxFit.cover),
+
           ),
           width: double.infinity,
           child: Column(
