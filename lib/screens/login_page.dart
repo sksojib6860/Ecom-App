@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,66 +14,62 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
-
   String _loginEmail = "";
   String _loginPassword = "";
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  
+
   bool isVisible = true;
 
-  Future <void> _alartDialogBuilder (String error) async {
-    return showDialog(context: context, builder: (context){
-      return AlertDialog(
-        title: Text('Error'),
-        content: Container(child: Text(error),),
-        actions: [
-          FlatButton(onPressed: (){
-            Navigator.pop(context);
-          }, child: Text('cancel'))
-        ],
-      );
-      
-    } );
+  Future<void> _alartDialogBuilder(String error) async {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Error'),
+            content: Container(
+              child: Text(error),
+            ),
+            actions: [
+              FlatButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('cancel'))
+            ],
+          );
+        });
   }
 
   void _submitForm() async {
     String? _loginFeedBack = await _loginAccount();
-    if (_loginFeedBack != null){
+    if (_loginFeedBack != null) {
       _alartDialogBuilder(_loginFeedBack);
     }
   }
 
-  Future<String?> _loginAccount () async {
+  Future<String?> _loginAccount() async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _loginEmail,
-       password: _loginPassword);
-       return null;
-    }
-    
-    on FirebaseAuthException catch (e){
-      if (e.code == 'weak pass word'){
+          email: _loginEmail, password: _loginPassword);
+      return null;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak pass word') {
         return "the Password is weeak";
-      }
-      else if (e.code == 'email exist'){
+      } else if (e.code == 'email exist') {
         return 'The mail is already exist';
       }
       return e.message;
-    } 
-    catch(e){
+    } catch (e) {
       return e.toString();
     }
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-
         child: Container(
           width: double.infinity,
           child: Column(
@@ -84,9 +79,15 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.only(
                   top: 100,
                 ),
-                child: Icon(Icons.star,size: 100,color: Colors.green,),
+                child: Icon(
+                  Icons.star,
+                  size: 100,
+                  color: Colors.green,
+                ),
               ),
-              SizedBox(height: 50,),
+              SizedBox(
+                height: 50,
+              ),
               Column(
                 children: [
                   Padding(
@@ -109,20 +110,17 @@ class _LoginPageState extends State<LoginPage> {
                                   onTap: () {
                                     emailController.clear();
                                   },
-                                  child: Icon(Icons.close)
-                                  ),
+                                  child: Icon(Icons.close)),
                           hintText: 'example@mail.com',
                           labelText: 'Email',
-                           focusedBorder: OutlineInputBorder(
+                          focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide:
-                                  BorderSide(color: Colors.red, width: 2)
-                                  ),
-
-                          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: Colors.black,width: 2)
-                          )
-                                  ),
+                                  BorderSide(color: Colors.red, width: 2)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide:
+                                  BorderSide(color: Colors.black, width: 2))),
                     ),
                   ),
                   SizedBox(
@@ -149,53 +147,44 @@ class _LoginPageState extends State<LoginPage> {
                               },
                               child: Icon(isVisible
                                   ? Icons.visibility
-                                  : Icons.visibility_off)
-                                  ),
+                                  : Icons.visibility_off)),
                           hintText: 'type your password',
                           labelText: 'Password',
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide:
-                                  BorderSide(color: Colors.red, width: 2)
-                                  ),
-
-                          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: Colors.black,width: 2)
-                          )
-                                  ),
+                                  BorderSide(color: Colors.red, width: 2)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide:
+                                  BorderSide(color: Colors.black, width: 2))),
                     ),
                   ),
                   SizedBox(
                     height: 16,
                   ),
-                 
                 ],
               ),
               Padding(
                 padding: const EdgeInsets.only(
                   bottom: 16.0,
                 ),
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-
-                     IconButton(
+                    TextButton(
                         onPressed: () {
-                         _submitForm();
+                          _submitForm();
                         },
-                        icon: Icon(Icons.login),
-                     ),
-                  
-                   
-                    IconButton(
+                        child: Text('Login')),
+                    TextButton(
                         onPressed: () {
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RigesterPage()),
-                          );
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RigesterPage()));
                         },
-                        icon: Icon(Icons.app_registration)),
+                        child: Text('Register Now'))
                   ],
                 ),
               ),

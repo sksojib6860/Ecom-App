@@ -162,14 +162,9 @@ class _RigesterPageState extends State<RigesterPage> {
                   SizedBox(
                     height: 16,
                   ),
-                  IconButton(
-                      onPressed: () {
-                        _submitForm();
-                      },
-                      icon: Icon(
-                        Icons.app_registration_rounded,
-                        color: allColor.appColor,
-                      )),
+                  TextButton(onPressed: (){
+                    _submitForm();
+                  }, child: Text('SignUp!')),
                   Text(
                     'Sign up !',
                     style: TextStyle(color: allColor.appColor),

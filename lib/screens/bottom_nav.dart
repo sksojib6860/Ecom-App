@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
     SearchTab(),
     SearchTab(),
 
-
   ];
 
   @override
@@ -32,6 +31,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: bodypage[page],
       bottomNavigationBar: CurvedNavigationBar(
+        height: 50,
         index: 0,
         items: [
           Icon(Icons.home),
