@@ -76,21 +76,19 @@ class _RigesterPageState extends State<RigesterPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-
-          ),
+          decoration: BoxDecoration(),
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 padding: EdgeInsets.only(
-                  top: 24.0,
+                  top: 20,
                 ),
                 child: Text(
                   "Register Now",
-                  style: TextStyle(fontSize: 20),
-                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.right,
                 ),
               ),
               Column(
@@ -154,7 +152,7 @@ class _RigesterPageState extends State<RigesterPage> {
                           hintText: 'type your password',
                           labelText: 'Password',
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide:
                                   BorderSide(color: Colors.red, width: 1))),
                     ),
@@ -162,22 +160,16 @@ class _RigesterPageState extends State<RigesterPage> {
                   SizedBox(
                     height: 16,
                   ),
-                  TextButton(onPressed: (){
-                    _submitForm();
-                  }, child: Text('SignUp!')),
-                  Text(
-                    'Sign up !',
-                    style: TextStyle(color: allColor.appColor),
-                  )
+                  TextButton(
+                      onPressed: () {
+                        _submitForm();
+                      },
+                      child: Text('SignUp!')),
                 ],
               ),
               Padding(
                 padding: const EdgeInsets.only(
                   bottom: 60,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [],
                 ),
               ),
             ],
